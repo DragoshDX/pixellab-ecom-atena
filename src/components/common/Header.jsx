@@ -1,12 +1,14 @@
 import Link from 'next/link';
+import { useState } from 'react';
 import { CgMenu } from 'react-icons/cg';
 
 export const Header = () => {
-  const jsxVar = <span class="bg-white block w-4 h-4 rounded-full"></span>;
+  const [menuOpen, setMenuOpen] = useState(false);
+  const jsxVar = <span className="bg-white block w-4 h-4 rounded-full"></span>;
 
   return (
     <>
-      <section className="flex lg:flex-col justify-between items-center h-full lg:py-4">
+      <section className="flex lg:flex-col justify-between items-center h-full lg:py-4 z-10  relative">
         <Link href="/">
           {/* no use for anchor */}
           {jsxVar}
@@ -16,7 +18,7 @@ export const Header = () => {
           title="Menu"
           type="button"
           onClick={() => {
-            alert('open menu');
+            setMenuOpen(!menuOpen);
           }}
         >
           <CgMenu size="32"></CgMenu>
@@ -28,7 +30,9 @@ export const Header = () => {
       </section>
 
       <nav
-        className={`absolute left-0 -top-full transition-transform transform-gpu w-screen h-screen bg-neutral-900`}
+        className={`absolute left-0 -top-full ${
+          menuOpen ? 'translate-y-full' : ''
+        } transition-transform transform-gpu w-screen h-screen bg-neutral-900 lg:w-screen-1/3`}
       >
         <ul>
           <li>
