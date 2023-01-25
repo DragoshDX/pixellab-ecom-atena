@@ -9,7 +9,7 @@ export const GridControls = ({ set = () => {} }) => {
   console.log('render grid controls');
 
   return (
-    <ul className="flex border border-l-0 border-zinc-200">
+    <ul className="border border-l-0 border-zinc-200 hidden lg:flex">
       <li>
         <button
           type="button"
