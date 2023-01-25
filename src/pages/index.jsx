@@ -1,3 +1,4 @@
+import { CartControls } from '@/components/cart';
 import { GridControls, ProductGrid } from '@/components/catalog';
 import { Layout } from '@/layouts';
 import Head from 'next/head';
@@ -20,6 +21,7 @@ export default function Home() {
         <main className="container px-4 mx-auto">
           <header className="flex justify-end">
             <GridControls set={setItemsPerRow}></GridControls>
+            <CartControls></CartControls>
           </header>
 
           <section className="mt-16">
