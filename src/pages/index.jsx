@@ -1,4 +1,4 @@
-import { ProductGrid } from '@/components/catalog/ProductGrid';
+import { GridControls, ProductGrid } from '@/components/catalog';
 import { Layout } from '@/layouts';
 import Head from 'next/head';
 
@@ -13,6 +13,10 @@ export default function Home() {
 
       <Layout>
         <main className="container px-4 mx-auto">
+          <header className="flex justify-end">
+            <GridControls></GridControls>
+          </header>
+
           <section>
             <ProductGrid></ProductGrid>
           </section>
