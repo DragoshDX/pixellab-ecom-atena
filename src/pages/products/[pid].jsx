@@ -35,14 +35,14 @@ const ProductPage = () => {
       </Head>
 
       <Layout>
-        <main class="container px-4 mx-auto">
-          <header class="flex justify-end">
-            <div class="border-l border-zinc-200">
+        <main className="container px-4 mx-auto">
+          <header className="flex justify-end">
+            <div className="border-l border-zinc-200">
               <CartControls></CartControls>
             </div>
           </header>
 
-          <section class="mt-16">
+          <section className="mt-16">
             Product Page for {pid}
             <div>{JSON.stringify(product)}</div>
           </section>
