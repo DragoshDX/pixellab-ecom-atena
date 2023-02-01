@@ -12,17 +12,6 @@ const ProductPage = () => {
   const router = useRouter();
   const { pid } = router.query;
 
-  useEffect(() => {
-    fetch(`${baseUrl}/products/${pid}`)
-      .then((response) => {
-        // .json returns promise
-        return response.json();
-      })
-      .then((product) => {
-        setProduct(product);
-      });
-  }, [setProduct, pid]);
-
   return (
     <>
       <Head>
