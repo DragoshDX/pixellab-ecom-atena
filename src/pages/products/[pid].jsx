@@ -1,7 +1,7 @@
 // /products/2  /products/5  products/22
 
 import { CartControls } from '@/components/cart';
-import { useProduct } from '@/hooks';
+import { ProductDisplay } from '@/components/catalog/ProductDisplay';
 import { Layout } from '@/layouts';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -9,8 +9,6 @@ import { useRouter } from 'next/router';
 const ProductPage = () => {
   const router = useRouter();
   const { pid } = router.query;
-
-  const { product, httpStatus, loading } = useProduct(pid);
 
   return (
     <>
@@ -24,7 +22,7 @@ const ProductPage = () => {
       </Head>
 
       <Layout>
-        <main className="container px-4 mx-auto">
+        <main>
           <header className="flex justify-end">
             <div className="border-l border-zinc-200">
               <CartControls></CartControls>
@@ -32,20 +30,7 @@ const ProductPage = () => {
           </header>
 
           <section className="mt-16">
-            {loading ? (
-              '...loading'
-            ) : (
-              <>
-                {httpStatus === 404 ? (
-                  'product not found'
-                ) : (
-                  <>
-                    Product Page for {pid}
-                    <div>{JSON.stringify(product)}</div>
-                  </>
-                )}
-              </>
-            )}
+            <ProductDisplay productId={pid}></ProductDisplay>
           </section>
         </main>
       </Layout>
