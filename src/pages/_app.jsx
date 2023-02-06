@@ -1,14 +1,19 @@
-import { useLocalStorage } from '@/hooks';
-import { createContext } from 'react';
+import { createContext, useEffect, useState } from 'react';
+import { useLocalStorage } from 'usehooks-ts';
 import './../styles/index.css';
 
 export const UiContext = createContext();
 
 export default function App({ Component, pageProps }) {
-  const [itemsPerRow, setItemsPerRow] = useLocalStorage('perRow', '4/row');
+  const [perRow, setPerRow] = useLocalStorage('perRow');
+  const [itemsPerRow, setItemsPerRow] = useState('4/row');
+
+  useEffect(() => {
+    setItemsPerRow(perRow);
+  }, [perRow, setItemsPerRow]);
 
   return (
-    <UiContext.Provider value={{ itemsPerRow, setItemsPerRow }}>
+    <UiContext.Provider value={{ itemsPerRow, setItemsPerRow: setPerRow }}>
       <Component {...pageProps} />;
     </UiContext.Provider>
   );
