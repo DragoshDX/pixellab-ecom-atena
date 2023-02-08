@@ -1,9 +1,14 @@
+import { cartContext } from '@/contexts';
+import { useContext } from 'react';
+
 export const CartDisplay = () => {
+  const { test: text } = useContext(cartContext);
+
   return (
     <table>
       <thead>
         <tr>
-          <th>Product</th>
+          <th>Product {text}</th>
           <th>Price</th>
           <th>Quantity</th>
           <th>Total</th>
