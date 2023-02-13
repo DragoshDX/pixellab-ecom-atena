@@ -3,12 +3,14 @@ import { createContext } from 'react';
 
 export const cartContext = createContext();
 
+const x = cartContext;
+
 export const CartContext = ({ children }) => {
   const { cartProducts, loading, cartId } = useCart(2);
 
   return (
-    <cartContext.Provider value={{ cartProducts, loading, cartId }}>
+    <x.Provider value={{ cartProducts, loading, cartId }}>
       {children}
-    </cartContext.Provider>
+    </x.Provider>
   );
 };
